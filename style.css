@@ -23,9 +23,9 @@ body {
     max-width: 900px;
     padding: 20px 30px;
     border-radius: 10px; 
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
-
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 10px 10px 10px rgba(100, 100, 100, 0.05);
+    font-size: 1rem;
 }
 
 .grammatical-person {
@@ -39,6 +39,37 @@ body {
     margin-right: 20px;
 }
 
-.grammatical-person input {
-    flex: 1;
+.button-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #e1dfdf;
+    outline: none;
+    box-shadow: 0 0.25rem rgba(121, 121, 121, 0.65);
+}
+
+button:hover {
+    filter: brightness(105%);
+}
+
+button:active {
+    transform: translate(0, 0.25rem);
+    box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+/* Media Query: Talbet or Smaller */
+@media screen and (max-width: 1000px) {
+    div#app-container {
+        margin: auto 10px;
+    }
 }
