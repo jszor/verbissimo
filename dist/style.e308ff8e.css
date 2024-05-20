@@ -67,6 +67,14 @@ button:active {
     box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
 
+input.correct {
+    border: 2px solid rgb(129, 165, 129);
+}
+
+input.incorrect {
+    border: 2px solid rgb(202, 95, 95);
+}
+
 /* Media Query: Talbet or Smaller */
 @media screen and (max-width: 1000px) {
     div#app-container {

@@ -12,23 +12,30 @@ function getRandomVerb() {
 
 function getConjugations(verb) {
     return {
-        io: ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 1, 'S'),
-        tu: ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 2, 'S'),
+        'io': ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 1, 'S'),
+        'tu': ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 2, 'S'),
         'lui-lei-Lei': ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 3, 'S'),
-        noi: ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 1, 'P'),
-        voi: ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 2, 'P'),
-        loro: ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 3, 'P')
+        'noi': ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 1, 'P'),
+        'voi': ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 2, 'P'),
+        'loro': ItalianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', 3, 'P')
     };
 }
 
-export function generateVerb() {
+function generateVerb() {
     currentVerb = getRandomVerb();
     currentConjugations = getConjugations(currentVerb);
     document.getElementById('verb-infinitive').textContent = currentVerb;
     document.getElementById('conjugation-form').reset();
+
+    const formElements = document.querySelectorAll('#conjugation-form input');
+    formElements.forEach(element => {
+        element.classList.remove('correct', 'incorrect');
+    });
 }
 
-export function checkAnswers() {
+
+
+function checkAnswers() {
     const form = document.getElementById('conjugation-form');
     let correct = true;
 
@@ -37,15 +44,20 @@ export function checkAnswers() {
         if (userInput !== value) {
             correct = false;
             form[key].classList.add('incorrect');
+            form[key].classList.remove('correct');
         } else {
+            form[key].classList.add('correct');
             form[key].classList.remove('incorrect');
         }
     }
 
     if (correct) {
-        alert('All answers are correct!');
-    } else {
-        alert('Some answers are incorrect. Try again.');
+        // Show speech bubble
+        document.getElementById('speech-bubble').classList.remove('hidden');
+        // Hide speech bubble after a few seconds (optional)
+        setTimeout(() => {
+            document.getElementById('speech-bubble').classList.add('hidden');
+        }, 3000); // Adjust duration as needed
     }
 }
 
