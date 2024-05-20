@@ -21,14 +21,14 @@ function getConjugations(verb) {
     };
 }
 
-function generateVerb() {
+export function generateVerb() {
     currentVerb = getRandomVerb();
     currentConjugations = getConjugations(currentVerb);
     document.getElementById('verb-infinitive').textContent = currentVerb;
     document.getElementById('conjugation-form').reset();
 }
 
-function checkAnswers() {
+export function checkAnswers() {
     const form = document.getElementById('conjugation-form');
     let correct = true;
 
@@ -50,3 +50,6 @@ function checkAnswers() {
 }
 
 document.addEventListener('DOMContentLoaded', generateVerb);
+
+window.generateVerb = generateVerb;
+window.checkAnswers = checkAnswers;
