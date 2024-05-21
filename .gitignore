@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Parcel cache
+.cache/
+
+# Production build
+dist/
+
+# System files
+.DS_Store
