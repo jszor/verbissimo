@@ -33,15 +33,14 @@ function generateVerb() {
     });
 }
 
-
-
 function checkAnswers() {
     const form = document.getElementById('conjugation-form');
     let correct = true;
 
     for (const [key, value] of Object.entries(currentConjugations)) {
-        const userInput = form[key].value.trim();
-        if (userInput !== value) {
+        const userInput = form[key].value.trim().toLowerCase();
+        const expectedValue = value.toLowerCase();
+        if (userInput !== expectedValue) {
             correct = false;
             form[key].classList.add('incorrect');
             form[key].classList.remove('correct');
@@ -49,15 +48,6 @@ function checkAnswers() {
             form[key].classList.add('correct');
             form[key].classList.remove('incorrect');
         }
-    }
-
-    if (correct) {
-        // Show speech bubble
-        document.getElementById('speech-bubble').classList.remove('hidden');
-        // Hide speech bubble after a few seconds (optional)
-        setTimeout(() => {
-            document.getElementById('speech-bubble').classList.add('hidden');
-        }, 3000); // Adjust duration as needed
     }
 }
 
