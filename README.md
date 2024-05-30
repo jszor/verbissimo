@@ -24,7 +24,7 @@ Verbissimo is a simple web application designed to help users practice Italian v
 - CSS
 - JavaScript
 - Parcel Bundler
-- npm packages: https://www.npmjs.com/package/italian-verbs.
+- Node.js/npm packages: https://www.npmjs.com/package/italian-verbs.
    - italian-verbs: Provides access to Italian verb conjugations.
    - italian-verbs-dict: Dictionary containing Italian verb conjugation data.
 
